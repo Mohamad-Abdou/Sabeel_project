@@ -1,0 +1,53 @@
+ <%= stylesheet_link_tag "account"%>
+<style>
+  body{
+    font-family: 'Marhey', sans-serif;
+  }
+  input {
+    font-family: 'Marhey', sans-serif;
+  }
+</style>
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center" style="height: 100vh;">
+    <div class="mx-auto center-form col-md-6">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class=>"form"}) do |f| %>
+        <h2>إنشاء حساب</h2>
+        <%= render "users/shared/error_messages", resource: resource %>
+        <div class="form-group fullname">
+          <label for="user_username">الاسم الثلاثي</label>
+          <%= f.text_field :username, autofocus: true, placeholder: "اسم المستخدم"%>
+        </div>
+        <div class="form-group email">
+          <label for="user_email">البريد الالكتروني</label>
+          <%= f.email_field :email, autocomplete: "email", placeholder: "البريد الالكتروني"%>
+        </div>
+        <div class="form-group date">
+          <label for="user_date"> تاريخ الميلاد</label>
+          <% max_birthdate = 15.years.ago.to_date %>
+          <%= f.date_field :birthdate, autocomplete: "birthdate", max: max_birthdate %>
+        </div>
+        <div class="form-group city">
+          <label for="user_location">المحافظة</label>
+          <%= f.collection_select(:location, SupportedGovernate.all, :id, :name, { include_blank: 'اختر محافظة' }) %>
+        </div>
+        <div class="form-group password">
+          <label for="user_password">كلمة المرور</label>
+          <%= f.password_field :password, placeholder: "كلمة المرور", class: "pass" %>
+          <i id="pass-toggle-btn" class="fa-solid fa-eye"></i>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>  محارف على أﻷقل)</em>
+          <% end %>
+        </div>
+        <div class="form-group password">
+          <label for="user_password">تأكيد كلمة المرور </label>
+          <%= f.password_field :password_confirmation, placeholder: "كلمة المرور" %>
+        </div>
+        <div class="form-group submit-btn">
+          <%= f.submit "انشئ حسابي" %>
+        </div>
+        <%= render "users/shared/links" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag('account.js') %>

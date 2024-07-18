@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <table class="table table-hover table-bordered align-middle"">
+    <thead class="table-dark text-center">
+      <tr>
+        <th>الرقم</th>
+        <th>اسم المستخدم</th>
+        <th>البريد الإلكتروني</th>
+        <th>عدد الكتب المسجلة</th>
+        <th>الموقع</th>
+        <th>حالة الحساب</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <% @users.each do |user| %>
+        <% if user.access_locked?%>
+          <tr class="table-danger">
+          <% else %>
+            <tr class="table-success">
+            <% end %>
+            <td><%= user.id %></td>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.books.count %></td>
+            <td><%= user.supported_governate.name %></td>
+            <% if user.access_locked? %>
+              <td> <%= button_to "Unlock Account", unlock_user_path(user), method: :post, class: "btn btn-success" %></td>
+            <% else %>
+              <td><%= button_to "Lock Account", lock_user_path(user), method: :post, class: "btn btn-danger" %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

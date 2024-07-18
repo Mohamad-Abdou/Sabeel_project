@@ -1,0 +1,94 @@
+@import 'bootstrap';
+:root {
+  --white-color:                  #ffffff;
+  --primary-color:                #d5b16c;
+  --secondary-color:              #9b3c27;
+  --section-bg-color:             #f0daae;
+  --site-footer-bg-color:         #36363e;
+  --custom-btn-bg-color:          #00a05d;
+  --dark-color:                   #000000;
+  --p-color:                      #717275;
+  --border-color:                 #e9eaeb;
+
+  --twitter-color:                #1da1f2;
+  --facebook-color:               #1877f2;
+  --instagram-color:              #c13584;
+  --pinterest-color:              #e60023;
+  --whatsapp-color:               #128c7e;
+
+  --h1-font-size:                 62px;
+  --h2-font-size:                 48px;
+    --h3-font-size:                 36px;
+  --h4-font-size:                 32px;
+  --h5-font-size:                 24px;
+  --h6-font-size:                 22px;
+  --p-font-size:                  20px;
+  --btn-font-size:                16px;
+  --copyright-font-size:          14px;
+
+  --border-radius-large:          100px;
+  --border-radius-medium:         20px;
+  --border-radius-small:          10px;
+
+  --font-weight-thin:             100;
+  --font-weight-light:            300;
+  --font-weight-normal:           400;
+  --font-weight-semibold:         600;
+  --font-weight-bold:             700;
+}
+
+
+.field_with_errors {
+  color: red;
+}
+body{
+  min-height: 120%;
+  min-width: 100%;
+  font-family: 'Marhey', sans-serif;
+}
+input {
+  font-family: 'Marhey', sans-serif;
+}
+
+#notice-wraper{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    text-align: center;
+}
+
+#errorModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body {
+  overflow-y: auto;
+}
+
+.turbo-progress-bar {
+  position: relative;
+  height: 5px;
+  width: 101%;
+  border: 1px solid #f4a261;
+  border-radius: 1px;
+}
+
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

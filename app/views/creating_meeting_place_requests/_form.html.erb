@@ -1,0 +1,52 @@
+ <%= stylesheet_link_tag "account"%>
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center" style="height: 100vh;">
+    <div class="mx-auto center-form col-md-6">
+      <%= form_with(model: creating_meeting_place_request) do |form| %>
+        <h2>طلب إنشاء ملتقى</h2>
+        <% if creating_meeting_place_request.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(creating_meeting_place_request.errors.count, "error") %> prohibited this creating_meeting_place_request from being saved:</h2>
+            <ul>
+              <% creating_meeting_place_request.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div  class="form-group email">
+          <%= form.label :"البريد الإلكتروني" %>
+          <%= form.text_field :email %>
+        </div>
+        <div class="form-group" >
+          <%= form.label :"اسم المحل التجاري" %>
+          <%= form.text_field :stor_name %>
+        </div>
+        <div class="form-group fullname">
+          <%= form.label :"اسم المالك الثلاثي" %>
+          <%= form.text_field :owner_name %>
+        </div>
+        <div class="form-group contract">
+          <%= form.label :"صورة عقد المحل التجاري"%>
+          <%= form.file_field :contract, style: "border: 0px"%>
+        </div >
+        <div class="form-group">
+          <%= form.label :"محافظتك" %>
+          <%= form.collection_select(:governate, SupportedGovernate.all, :id, :name) %>
+        </div>
+        <div class="form-group city">
+          <%= form.label :"اسم المدينة" %>
+          <%= form.text_field :city_name %>
+        </div>
+        <div class="form-group location-details">
+          <%= form.label :"تفاصيل المكان" %>
+          <%= form.text_field :location_details %>
+        </div>
+        <div class="form-group submit-btn">
+          <%= form.submit "أرسل الطلب" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag('meeting_requests.js') %>

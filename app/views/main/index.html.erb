@@ -1,0 +1,101 @@
+<%= stylesheet_link_tag "bootstrap.min.css"%>
+<%= stylesheet_link_tag "bootstrap-icons.css"%>
+<%= stylesheet_link_tag "homepage"%>
+<%= render "partial/navbar" %>
+<style>
+  body{
+      font-family: 'Marhey', sans-serif;
+  }
+  p{
+      font-family: 'Lateef', serif;
+  }
+</style>
+<main>
+  <section class="home-section  d-flex" id="section_1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-12 ">
+          <div class="custom-block page-custom-block">
+            <small class="section-small-title">أهلا بك في
+              سبيل</small>
+            <h4 class="home-title mt-2 mb-4">منصة تواصل
+              ثقافية وتبادل الكتب الورقية </h4>
+            <h5 class="home-title">اعط كتابك حياة أخرى و كن
+              شريك معنا في منصة سبيل حيث بإمكانك استبدال
+              كتابك بكتاب آخر دون مقابل.</h5>
+            <a href="#section_2" class="allbutton ">قراءة
+              المزيد</a>
+            <%= link_to "انضم إلينا", new_user_registration_path, class: "allbutton"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="about1-section section-padding" id="section_2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-12 m-auto">
+          <div class="custom-block page-custom-block">
+            <p>لكي لا تبقى المعرفة حبيسة الرفوف ,
+              أُنشئت منصة سبيل بهدف إثراء المعارف وفتح
+              مجال تبادل الكتب بشكل أكبر بين جميع
+              الفئات التي تهتم بالقراءة والمطالعة بما يعزز
+              من مستوى التواصل الثقافي
+              , حيث تتيح المنصة الفرصة للشخص بتبادل كتاب
+              انتهى من قراءته سابقاً مع
+              شخص أخر يرغب في اقتناء هذا النوع من الكتب
+              بهدف تشارك الأفكار والمعلومات وهنا ترتقي
+              وتلتقي العقول.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+          <div>
+            <%= image_tag("giving_book.jpg", class: "about11-image img-fluid")  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class=" section-padding" id="section_3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-12 ">
+          <div class="custom-block page-custom-block">
+            <h5 class="mb-3 meeting-title">الحساب</h5>
+            <p>إنشاء حساب على المنصة يمكنك من : <br>
+              -إضافة الكتب التي تملكها وتريد تبديلها ورؤية
+              الكتب المتوفرة عند الآخرين وطلبها للتبادل.
+              <br>
+              -إن كنت كاتباً تتيح لك المنصة إضافة كتاباتك
+              الخاصة ونشرها . <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-padding pb-0" id="section_4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 col-12">
+          <h4 class="mt-2 mb-4 meeting-title">الملتقى</h4>
+          <h6 class=" mb-3 meeting1-title"> إن وجود مكان رسمي
+            محدد ليتم التبادل فيه يكون أكثر سهولة وأمان
+            للطرفين.</h6>
+          <p>يمكنك إنشاء الملتقى الخاص بك الآن لتساهم في
+            عمليات تبادل الكتب</p>
+          <%= link_to "إنشاء ملتقى", new_creating_meeting_place_request_path, class: "allbutton allbut" %>
+          <%= link_to "تسجيل الدخول", new_meeting_place_session_path, class: "allbutton allbut" %>
+        </div>
+        <div class="col-lg-3 col-md-5 col-5 mx-lg-auto">
+          <%= image_tag("meeting4.jpg", class: "meeting-img meeting-img-small img-fluid") %>
+        </div>
+        <div class="col-lg-4 col-md-7 col-7">
+          <%= image_tag("meeting3.jpg", class: "meeting-img img-fluid") %>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<%= javascript_include_tag('click-scroll.js') %>
+<%= javascript_include_tag('custom.js') %>

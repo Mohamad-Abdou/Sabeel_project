@@ -1,0 +1,29 @@
+<% if resource.errors.any? %>
+  <!-- Trigger the modal -->
+  <script>
+    $(document).ready(function(){
+      $('#errorModal').modal('show');
+    });
+  </script>
+  <!-- Modal -->
+  <div id="errorModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center">
+          <h4 class="modal-title">خطأ</h4>
+        </div>
+        <div class="modal-body">
+          <div id="error_explanation" data-turbo-temporary="false">
+            <ul>
+              <% resource.errors.full_messages.each do |message| %>
+                <p class="alert alert-danger d-flex justify-content-center"><%= message %></p>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <button type="button" class="btn btn-default" data-bs-dismiss="modal">حسنا</button>
+      </div>
+    </div>
+  </div>
+<% end %>
